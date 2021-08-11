@@ -11,5 +11,5 @@ public class ContactInformation {
     @Getter @Setter
     private String emailId;
     @Getter @Setter
-    private int phoneNumber;
+    private String phoneNumber;
 }

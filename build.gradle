@@ -2,8 +2,8 @@ plugins {
     id 'java'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+group 'com.rohit.app.core.model'
+version '1.0'
 
 repositories {
     mavenCentral()
@@ -24,3 +24,16 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+task buildZip(type: Zip) {
+    from compileJava
+    from processResources
+    into('lib') {
+        from configurations.runtimeClasspath
+    }
+}
+
+build.dependsOn buildZip
+
+//https://www.jetbrains.com/help/idea/add-a-gradle-library-to-the-maven-repository.html#publish_remote
+// Above is for publishing to mvn repository
